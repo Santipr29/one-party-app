@@ -81,10 +81,9 @@ function App() {
       {selectedGame && !isSpinning && (
         <div className="overlay" onClick={closePopup}>
           <div className="popup-top">
-
+            <h2>{selectedGame.title}</h2>
           </div>
           <div className="popup-botton" onClick={(e) => e.stopPropagation()}>
-            <h2>{selectedGame.title}</h2> 
             <p>{selectedGame.description}</p> 
             <button className="close-button" onClick={closePopup}>Cerrar</button>
           </div>
