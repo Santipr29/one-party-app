@@ -8,6 +8,8 @@ function App() {
   const [selectedGame, setSelectedGame] = useState(null);
   const [isSpinning, setIsSpinning] = useState(false);
   const [currentHighlightIndex, setCurrentHighlightIndex] = useState(null);
+  const [showGrid, setShowGrid] = useState(false); 
+  const [showButtons, setShowButtons] = useState(true); 
 
   const selectRandomGames = (array, numberOfGames) => {
     const selectedGames = [];
@@ -27,6 +29,8 @@ function App() {
   const handleButtonClick = (gameType) => {
     setIsSpinning(true);
     setSelectedGame(null); 
+    setShowButtons(false); 
+    setShowGrid(true); 
 
     const newGames = gameType === 'challenges' ? selectRandomGames(challenges, 6) : selectRandomGames(duels, 6);
     setDisplayedGames(newGames);
@@ -49,34 +53,40 @@ function App() {
   };
 
   const closePopup = () => {
-    setSelectedGame(null);  
+    setSelectedGame(null);
+    setShowGrid(false);  
+    setShowButtons(true);  
   };
 
   return (
     <div className="App">
-      <img src="/public/assets/logo.png" className="logo" alt="Logo" />
+      <img src="../public/assets/logo.png" className="logo" alt="Logo" />
 
-      <div className="grid-container">
-        {displayedGames.map((game, index) => (
-          <div 
-            key={game.id} 
-            className={`grid-item 
-            ${currentHighlightIndex === index ? 'highlight' : ''} 
-            ${selectedGame?.id === game.id ? 'selected' : ''}`}
-          >
-            <span>{game.title}</span> 
-          </div>
-        ))}
-      </div>
+      {showGrid && (
+        <div className="grid-container">
+          {displayedGames.map((game, index) => (
+            <div 
+              key={game.id} 
+              className={`grid-item 
+              ${currentHighlightIndex === index ? 'highlight' : ''} 
+              ${selectedGame?.id === game.id ? 'selected' : ''}`}
+            >
+              <span>{game.title}</span> 
+            </div>
+          ))}
+        </div>
+      )}
 
-      <div className="button-container">
-        <button onClick={() => handleButtonClick('challenges')} disabled={isSpinning}>
-          Retos
-        </button>
-        <button onClick={() => handleButtonClick('duels')} disabled={isSpinning}>
-          1 vs 1
-        </button>
-      </div>
+      {showButtons && (
+        <div className="button-container">
+          <button onClick={() => handleButtonClick('challenges')} disabled={isSpinning}>
+            Retos
+          </button>
+          <button onClick={() => handleButtonClick('duels')} disabled={isSpinning}>
+            1 vs 1
+          </button>
+        </div>
+      )}
 
       {selectedGame && !isSpinning && (
         <div className="overlay" onClick={closePopup}>
