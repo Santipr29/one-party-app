@@ -5,7 +5,7 @@ import Body from './components/Body';
 function App() {
   return (
     <div className="App">
-      <img src={logo}/>
+      <img src={logo} className='logo'/>
       <Body/>
     </div>
   );
