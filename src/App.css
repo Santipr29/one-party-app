@@ -1,0 +1,136 @@
+*{
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.App {
+  background-image: url('/public/assets/background.jpg'); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo{
+  width: 100vw;
+  margin-top: 3vh;
+  margin-bottom: 5vh;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr; 
+  gap: 20px;
+  margin-bottom: 3vh;
+}
+
+.grid-item {
+  width: 70vw;
+  background-color: #FFE9B2; 
+  border: 6px solid #4C0706; 
+  border-radius: 35px;
+  padding: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #4b1205; 
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.grid-item.highlight {
+  background-color: #e2b36b; 
+  transform: scale(1.1); 
+}
+
+.grid-item.selected {
+  background-color: #FFCF58; 
+  border-color: #FFFFFF; 
+  transform: scale(1.15);
+}
+
+.button-container button {
+  width: 150px;
+  padding: 15px;
+  margin: 10px;
+  background-color: #593015;
+  border: 3px solid #d4a151;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-container button:hover {
+  background-color: #4b1205; 
+}
+
+.button-container button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); 
+  backdrop-filter: blur(5px); 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup-top {
+  background-color: #f9d77b; 
+  padding: 20px;
+  border-radius: 20px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.popup-botton {
+  background-color: #f9d77b; 
+  padding: 20px;
+  border-radius: 20px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.popup h2 {
+  font-size: 24px;
+  color: #4b1205; 
+  margin-bottom: 10px;
+}
+
+.popup p {
+  font-size: 16px;
+  color: #4b1205; 
+}
+
+.close-button {
+  background-color: #d4a151;
+  border: 2px solid #593015;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #4b1205;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.close-button:hover {
+  background-color: #e2b36b;
+}
