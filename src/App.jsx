@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { challenges } from "./data/challenges";
 import { duels } from './data/duels';
 import './App.css'; 
+import logo from "./assets/logo.png"
 
 function App() {
   const [displayedGames, setDisplayedGames] = useState([]);
@@ -60,7 +61,7 @@ function App() {
 
   return (
     <div className="App">
-      <img src="../public/assets/logo.png" className="logo" alt="Logo" />
+      <img src={logo} className="logo" alt="Logo" />
 
       {showGrid && (
         <div className="grid-container">
