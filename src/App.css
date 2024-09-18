@@ -16,7 +16,7 @@
 
 .logo{
   width: 100vw;
-  margin-top: 5vh;
+  margin-top: 2vh;
 }
 
 .grid-container {
@@ -24,7 +24,7 @@
   grid-template-columns: 1fr; 
   gap: 20px;
   margin-bottom: 3vh;
-  margin-top: 5vh;
+  margin-top: 3vh;
 }
 
 .grid-item {
